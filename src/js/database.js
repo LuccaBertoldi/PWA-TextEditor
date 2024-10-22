@@ -1,6 +1,8 @@
 import { openDB } from 'idb';
 
-// Initialize the database
+
+console.log('database.js loaded');
+
 const initdb = async () =>
   openDB('jate', 1, {
     upgrade(db) {
@@ -13,31 +15,23 @@ const initdb = async () =>
     },
   });
 
-// Method to add content to the database
+// Add content to the database
 export const putDb = async (content) => {
-  console.log('Adding content to the database');
   const db = await openDB('jate', 1);
   const tx = db.transaction('jate', 'readwrite');
   const store = tx.objectStore('jate');
-  
   const result = await store.add({ content });
-  await tx.done;
-  console.log('Content added to the database with ID:', result);
+  console.log('Data saved to the database:', result);
 };
 
-// Method to get the most recent content from the database
+// Get all content from the database
 export const getDb = async () => {
-  console.log('Fetching content from the database');
   const db = await openDB('jate', 1);
   const tx = db.transaction('jate', 'readonly');
   const store = tx.objectStore('jate');
-  
   const allContent = await store.getAll();
-  await tx.done;
-
-  // Return the content if found; otherwise, return null or an empty string
-  return allContent.length > 0 ? allContent[allContent.length - 1].content : null;
+  console.log('Data retrieved from the database:', allContent);
+  return allContent;
 };
 
-// Initialize the database
 initdb();

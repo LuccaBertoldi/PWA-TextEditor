@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Just Another Text Editor - A Progressive Web App" />
+    <title>J.A.T.E</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/codemirror.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/theme/monokai.min.css" />
+    <link rel="stylesheet" href="./css/style.css"> <!-- Link to your main CSS file -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/mode/javascript/javascript.min.js"></script>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-btn">
+            <a class="btn btn-sm btn-dark" id="buttonInstall" role="button" aria-label="Install the app">Install!</a>
+        </div>
+        <h1>Just Another Text Editor</h1>
+        <div class="navbar-brand">
+            <img src="../favicon.ico" alt="App Icon" />
+        </div>
+    </nav>
+
+    <main id="main">
+        <div class="loading-container">
+            <div class="loading-spinner"></div>
+        </div>
+    </main>
+
+    <!-- Link to your bundled JavaScript files -->
+    <script type="module" src="./js/editor.js"></script>
+    <script type="module" src="./js/install.js"></script>
+    <script type="module" src="./js/index.js"></script>
+    <script type="module" src="./js/database.js"></script>
+</body>
+</html>
